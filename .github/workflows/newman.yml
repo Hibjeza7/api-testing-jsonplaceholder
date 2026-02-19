@@ -20,4 +20,8 @@ jobs:
         run: npm install -g newman
 
       - name: Run Postman tests
-        run: newman run jsonplaceholder.postman_collection.json -e jsonplaceholder.postman_environment.json
+        run: |
+          newman run jsonplaceholder.postman_collection.json \
+            --env-var "baseUrl=https://jsonplaceholder.typicode.com" \
+            --env-var "userId=1" \
+            --env-var "postId=1"
